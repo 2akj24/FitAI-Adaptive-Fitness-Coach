@@ -1,0 +1,38 @@
+services:
+  backend:
+    build: ./backend
+    container_name: fitai_backend
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_NAME: fitai
+      DB_USER: postgres
+      DB_PASSWORD: 1234
+      DB_PORT: 5432
+      API_KEY: your_openrouter_api_key_here
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: fitai_frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:16
+    container_name: fitai_postgres
+    environment:
+      POSTGRES_DB: fitai
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - fitai_pgdata:/var/lib/postgresql/data
+
+volumes:
+  fitai_pgdata:
