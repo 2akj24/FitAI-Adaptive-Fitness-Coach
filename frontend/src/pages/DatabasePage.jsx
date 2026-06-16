@@ -66,7 +66,7 @@ function DatabasePage({ isDark }) {
   }`;
 
   return (
-    <section className="max-w-7xl mx-auto mt-12 px-4">
+    <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 pt-40 md:pt-32 px-4 md:px-6 items-start">
       <div className="mb-8">
         <h2 className="text-4xl font-black">Meal Database</h2>
         <p className={isDark ? "text-gray-400" : "text-slate-500"}>

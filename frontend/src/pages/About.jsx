@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FileText,
   HeartPulse,
@@ -8,9 +8,12 @@ import {
   Code2,
   ArrowUpRight,
   Sparkles,
+  X,
 } from "lucide-react";
 
+
 export default function About({ isDark }) {
+  const [showDeveloperCard, setShowDeveloperCard] = useState(true);
   const resumeLink = "https://drive.google.com/file/d/18aHJeVgQmfhflYpok9tKT46PWj8Jg6AP/view?usp=sharing";
 
   const cardClass = isDark
@@ -29,7 +32,7 @@ export default function About({ isDark }) {
       <div className="absolute bottom-32 right-10 h-80 w-80 rounded-full bg-cyan-300/20 blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto">
-        <section className="text-center mb-16">
+        <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 pt-40 md:pt-32 px-4 md:px-6 items-start">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/40 bg-emerald-500/10 px-5 py-2 text-sm font-bold text-emerald-600 mb-6">
             <Sparkles size={16} />
             Smart fitness planning made simple
@@ -205,13 +208,20 @@ export default function About({ isDark }) {
           </div>
         </section>
 
-        <div
-          className={`fixed bottom-6 right-6 z-40 w-[310px] rounded-[1.7rem] border p-5 shadow-2xl backdrop-blur-xl float-card ${
+        {showDeveloperCard && (
+          <div
+            className={`fixed bottom-6 right-6 z-40 w-[310px] rounded-[1.7rem] border p-5 shadow-2xl backdrop-blur-xl float-card ${
             isDark
               ? "bg-slate-950/80 border-white/10"
               : "bg-white/85 border-emerald-100"
           }`}
         >
+          <button
+            onClick={() => setShowDeveloperCard(false)}
+            className="absolute top-3 right-3 p-2 rounded-full hover:bg-red-500/20 transition"
+          >
+            <X size={18} />
+          </button>
           <h3 className="text-xl font-black mb-3">About Developer</h3>
 
           <p className={`text-sm leading-6 mb-5 ${isDark ? "text-slate-300" : "text-slate-600"}`}>
@@ -230,6 +240,7 @@ export default function About({ isDark }) {
             <ArrowUpRight size={18} />
           </a>
         </div>
+        )}
       </div>
     </main>
   );

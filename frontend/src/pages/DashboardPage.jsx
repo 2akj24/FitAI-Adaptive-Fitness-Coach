@@ -146,7 +146,7 @@ function DashboardPage({
   const selectedDay = savedPlan?.diet_plan?.[activeDay];
 
   return (
-    <section className="max-w-7xl mx-auto mt-28 space-y-8">
+    <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 pt-40 md:pt-32 px-4 md:px-6 items-start">
       {!canSave && (
         <div className="rounded-2xl bg-amber-500/10 border border-amber-400/30 p-4 text-amber-300 font-semibold">
           You are using guest mode. You can view your dashboard and plan, but

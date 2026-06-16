@@ -24,7 +24,7 @@ function BlogsPage({ isDark }) {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto px-5 md:px-8 pt-32 pb-20">
+    <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 pt-40 md:pt-32 px-4 md:px-6 items-start">
       <div className="text-center mb-14">
         <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-500 px-4 py-2 rounded-full font-bold mb-5">
           <BookOpen size={18} />

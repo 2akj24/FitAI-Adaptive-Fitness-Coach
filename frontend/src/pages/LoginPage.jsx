@@ -64,7 +64,7 @@ function LoginPage({ isDark, setAuth, setIsLoggedIn, setPage }) {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-5 pt-28 pb-12">
+    <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 pt-40 md:pt-32 px-4 md:px-6 items-start">
       <div className={`w-full max-w-5xl rounded-[2rem] border overflow-hidden grid lg:grid-cols-[0.9fr_1.1fr] ${isDark ? "bg-white/10 border-white/10" : "bg-white border-slate-200 shadow-xl"}`}>
         <div className="bg-gradient-to-br from-emerald-400 to-cyan-400 p-8 md:p-10 text-slate-950">
           <div className="h-16 w-16 rounded-2xl bg-black/10 flex items-center justify-center mb-8">
