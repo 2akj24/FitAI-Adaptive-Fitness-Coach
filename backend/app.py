@@ -414,7 +414,7 @@ def auth_required():
         return None, (jsonify({"error": "Login required"}), 401)
     return user, None
 
-
+import json
 @app.route("/api/auth/register", methods=["POST"])
 def register():
     try:
@@ -732,6 +732,7 @@ def get_plan():
         workout_text = generate_workout_plan(data.get("activity_level", "low"))
         region = data.get("region")
 
+        import json
         final_plan = {
             "greeting": build_greeting(data, bmi, bmi_category),
             "summary": {
