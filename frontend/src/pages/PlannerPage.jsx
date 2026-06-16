@@ -71,7 +71,7 @@ function PlannerPage({
 
   return (
     <>
-      <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-10 pt-15 items-start">
+      <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 pt-40 md:pt-32 px-4 md:px-6 items-start">
         <div>
           <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6 ${
             isDark ? "bg-white/8 text-white" : "bg-slate-900 text-white"
@@ -80,18 +80,19 @@ function PlannerPage({
             Personalised Diet Plans
         </div>
 
-          <h2 className="text-4xl md:text-6xl font-black leading-[1.03]">
-            Your personal diet dashboard,<span className="text-gradient"> built instantly</span>
-        </h2>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.05]">
+            Your personal diet dashboard,
+            <span className="text-gradient"> built instantly</span>
+          </h2>
 
-          <p className={`mt-5 text-lg max-w-xl leading-8 font-normal ${
+          <p className={`mt-5 text-base md:text-lg max-w-xl leading-7 md:leading-8 ${
             isDark ? "text-gray-400" : "text-slate-600"
-            }`}>
+          }`}>
             Generate your 7-Day meal and workout plan with your personalised Fitness Coach
             using your goal, budget, region and saved meal database.
-  </p>
+          </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-2xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-8 max-w-2xl">
             <StatCard isDark={isDark} icon={<Flame />} title="Calories" value={rawPlan?.calories || "--"} />
             <StatCard isDark={isDark} icon={<Beef />} title="Protein" value={rawPlan?.protein ? `${rawPlan.protein}g` : "--"} />
             <StatCard isDark={isDark} icon={<Trophy />} title="Level" value={rawPlan?.level || "--"} />
