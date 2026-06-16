@@ -24,19 +24,12 @@ def get_conn():
         port=os.getenv("DB_PORT", "5432")
     )
 
+
 def create_table():
     conn = get_conn()
     cursor = conn.cursor()
 
-    cursor.execute("""
-                    CREATE TABLE IF NOT EXISTS user_plans (
-                        id SERIAL PRIMARY KEY,
-                        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-                        plan_data JSONB NOT NULL,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                    )
-                    """)
-
+    # 1. USERS TABLE FIRST
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
@@ -71,6 +64,17 @@ def create_table():
     WHERE email IS NOT NULL
     """)
 
+    # 2. USER PLANS AFTER USERS
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS user_plans (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        plan_data JSONB NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+    """)
+
+    # 3. USER SESSIONS
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS user_sessions (
         id SERIAL PRIMARY KEY,
@@ -80,6 +84,7 @@ def create_table():
     )
     """)
 
+    # 4. MEALS TABLE
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS meals (
         id SERIAL PRIMARY KEY,
@@ -94,6 +99,7 @@ def create_table():
     )
     """)
 
+    # 5. PROGRESS TABLE
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS progress (
         id SERIAL PRIMARY KEY,
@@ -110,7 +116,6 @@ def create_table():
     cursor.execute("ALTER TABLE progress ADD COLUMN IF NOT EXISTS notes TEXT")
     cursor.execute("ALTER TABLE progress ADD COLUMN IF NOT EXISTS tracked_date DATE DEFAULT CURRENT_DATE")
 
-    # Remove duplicate old progress rows before adding calendar-wise unique index.
     cursor.execute("""
     DELETE FROM progress a
     USING progress b
