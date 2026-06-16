@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CalendarDays, CheckCircle2, LogIn, XCircle } from "lucide-react";
 
-const API = "http://127.0.0.1:5000";
+const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:5000";
 
 function HistoryPage({ auth, isLoggedIn, isDark, setPage }) {
   const [logs, setLogs] = useState([]);

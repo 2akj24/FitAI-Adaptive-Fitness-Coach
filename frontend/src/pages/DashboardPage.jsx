@@ -13,7 +13,7 @@ import MealCard from "../components/MealCard";
 import { formatText } from "../utils/helpers";
 import BmiMeter from "../components/BmiMeter";
 
-const API = "http://127.0.0.1:5000";
+const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:5000";
 
 function DashboardPage({
   auth,
