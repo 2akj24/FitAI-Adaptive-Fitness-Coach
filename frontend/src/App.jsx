@@ -64,23 +64,30 @@ function App() {
 
   const bmi = useMemo(() => {
     if (!form.weight || !form.height) return "--";
+
     const h = Number(form.height) / 100;
     return (Number(form.weight) / (h * h)).toFixed(1);
   }, [form.weight, form.height]);
 
+  const appBackground = isDark
+    ? {
+        background:
+          "linear-gradient(180deg, #050816 0%, #070b14 45%, #08111f 100%)",
+      }
+    : {
+        background:
+          "linear-gradient(180deg, #f8fafc 0%, #ffffff 48%, #eefcf7 100%)",
+      };
+
   return (
     <div
+      style={appBackground}
       className={
         isDark
-          ? "min-h-screen bg-[#050816] text-white"
-          : "min-h-screen bg-[#f5f7fb] text-slate-950"
+          ? "min-h-screen w-full overflow-x-hidden text-white"
+          : "min-h-screen w-full overflow-x-hidden text-slate-950"
       }
     >
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl" />
-        <div className="absolute top-40 right-0 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
-      </div>
-
       <Navbar
         isDark={isDark}
         theme={theme}
@@ -120,7 +127,6 @@ function App() {
             </button>
 
             <div className="mb-5">
-              
               <h2 className="text-3xl font-black mb-3">
                 Login to track your progress
               </h2>
@@ -130,8 +136,8 @@ function App() {
                   isDark ? "text-slate-300" : "text-slate-600"
                 }`}
               >
-                Register/login to save your diet progress, workout
-                completion, calendar history, and access personalized dashboard data.
+                Register/login to save your diet progress, workout completion,
+                calendar history, and access personalized dashboard data.
               </p>
             </div>
 
@@ -149,7 +155,7 @@ function App() {
         </div>
       )}
 
-      <main className="relative z-10 px-5 md:px-8 py-10">
+      <main className="relative z-10 w-full overflow-x-hidden px-4 md:px-8 pt-28 pb-10">
         {page === "planner" && (
           <PlannerPage
             isDark={isDark}

@@ -71,7 +71,7 @@ function PlannerPage({
 
   return (
     <>
-      <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 pt-40 md:pt-32 px-4 md:px-6 items-start">
+      <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 px-0 items-start">
         <div>
           <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6 ${
             isDark ? "bg-white/8 text-white" : "bg-slate-900 text-white"

@@ -27,7 +27,7 @@ function HistoryPage({ auth, isLoggedIn, isDark, setPage }) {
 
   if (!isLoggedIn) {
     return (
-      <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 pt-40 md:pt-32 px-4 md:px-6 items-start">
+      <section className="max-w-7xl mx-auto flex justify-center">
         <div className={`rounded-[2rem] border p-10 ${isDark ? "bg-white/10 border-white/10" : "bg-white border-slate-200 shadow-xl"}`}>
           <LogIn size={46} className="mx-auto text-emerald-400 mb-5" />
           <h2 className="text-4xl font-black mb-4">Login to view history</h2>
@@ -39,7 +39,7 @@ function HistoryPage({ auth, isLoggedIn, isDark, setPage }) {
   }
 
   return (
-    <section className="max-w-7xl mx-auto mt-28">
+    <section className="max-w-7xl mx-auto">
       <div className="flex items-center justify-between gap-4 mb-6">
         <div>
           <h2 className="text-4xl font-black flex items-center gap-3"><CalendarDays className="text-emerald-400" /> Progress History</h2>
