@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { BookOpen, Calendar, User } from "lucide-react";
+import { API } from "../config";
 
 function BlogsPage({ isDark }) {
   const [blogs, setBlogs] = useState([]);
@@ -8,7 +9,7 @@ function BlogsPage({ isDark }) {
   useEffect(() => {
     async function loadBlogs() {
       try {
-        const res = await fetch("http://127.0.0.1:5000/api/blogs");
+        const res = await fetch(`${API}/api/blogs`);
         const data = await res.json();
 
         setBlogs(data.blogs || []);

@@ -16,7 +16,8 @@ function DatabasePage({ isDark }) {
     setLoadingMeals(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/all-meals");
+      const API = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${API}/api/all-meals`);
       const data = await res.json();
       setMeals(data.meals || []);
     } catch (err) {
