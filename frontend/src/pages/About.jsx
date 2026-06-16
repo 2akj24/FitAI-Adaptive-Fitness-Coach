@@ -11,29 +11,23 @@ import {
   X,
 } from "lucide-react";
 
-
 export default function About({ isDark }) {
   const [showDeveloperCard, setShowDeveloperCard] = useState(true);
-  const resumeLink = "https://drive.google.com/file/d/18aHJeVgQmfhflYpok9tKT46PWj8Jg6AP/view?usp=sharing";
+
+  const resumeLink =
+    "https://drive.google.com/file/d/18aHJeVgQmfhflYpok9tKT46PWj8Jg6AP/view?usp=sharing";
 
   const cardClass = isDark
     ? "bg-white/5 border-white/10 text-slate-300"
-    : "bg-white/80 border-slate-200 text-slate-600";
+    : "bg-white/80 border-slate-200 text-slate-600 shadow-lg";
 
   return (
-    <main
-      className={`relative min-h-screen overflow-hidden px-5 md:px-10 py-14 ${
-        isDark
-          ? "bg-[#050816] text-white"
-          : "bg-gradient-to-br from-emerald-50 via-white to-cyan-50 text-slate-900"
-      }`}
-    >
-      <div className="absolute top-20 left-10 h-72 w-72 rounded-full bg-emerald-300/20 blur-3xl" />
-      <div className="absolute bottom-32 right-10 h-80 w-80 rounded-full bg-cyan-300/20 blur-3xl" />
-
+    <section className="relative w-full overflow-hidden pb-44">
+      {/* Background Glow */}
       <div className="relative max-w-7xl mx-auto">
-        <section className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 pt-40 md:pt-32 px-4 md:px-6 items-start">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/40 bg-emerald-500/10 px-5 py-2 text-sm font-bold text-emerald-600 mb-6">
+        {/* Hero Section */}
+        <section className="text-center">
+          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-300/40 bg-emerald-500/10 px-5 py-2 text-sm font-bold text-emerald-500">
             <Sparkles size={16} />
             Smart fitness planning made simple
           </div>
@@ -54,7 +48,10 @@ export default function About({ isDark }) {
           </p>
         </section>
 
-        <section className={`rounded-[2rem] border p-7 md:p-10 mb-10 ${cardClass}`}>
+        {/* Our Story */}
+        <section
+          className={`mt-12 rounded-[2rem] border p-7 md:p-10 ${cardClass}`}
+        >
           <h2 className="text-3xl font-black mb-5">Our Story</h2>
 
           <div className="space-y-5 text-lg leading-8">
@@ -91,8 +88,11 @@ export default function About({ isDark }) {
           </div>
         </section>
 
-        <section className="grid lg:grid-cols-3 gap-6 mb-10">
-          <div className={`lg:col-span-2 rounded-[2rem] border p-7 md:p-10 ${cardClass}`}>
+        {/* Vision */}
+        <section className="grid lg:grid-cols-3 gap-6 mt-10">
+          <div
+            className={`lg:col-span-2 rounded-[2rem] border p-7 md:p-10 ${cardClass}`}
+          >
             <h2 className="text-3xl font-black mb-5">Our Vision</h2>
 
             <div className="space-y-5 text-lg leading-8">
@@ -114,16 +114,25 @@ export default function About({ isDark }) {
           </div>
 
           <div className="rounded-[2rem] border border-emerald-300/40 bg-emerald-500/10 p-7 md:p-8">
-            <h3 className="text-2xl font-black mb-4">What makes it different?</h3>
-            <p className={`leading-7 ${isDark ? "text-slate-300" : "text-slate-700"}`}>
+            <h3 className="text-2xl font-black mb-4">
+              What makes it different?
+            </h3>
+
+            <p
+              className={`leading-7 ${
+                isDark ? "text-slate-300" : "text-slate-700"
+              }`}
+            >
               FitAI is built around practical Indian meal choices, budget-aware
               filtering, region-based recommendations, activity-level workout
-              planning, and a clean dashboard that users can actually understand.
+              planning, and a clean dashboard that users can actually
+              understand.
             </p>
           </div>
         </section>
 
-        <section className="mb-10">
+        {/* Key Features */}
+        <section className="mt-10">
           <h2 className="text-3xl font-black mb-8">Key Features</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -171,18 +180,36 @@ export default function About({ isDark }) {
           </div>
         </section>
 
-        <section className={`rounded-[2rem] border p-7 md:p-10 mb-10 ${cardClass}`}>
+        {/* Technology Stack */}
+        <section
+          className={`mt-10 rounded-[2rem] border p-7 md:p-10 ${cardClass}`}
+        >
           <h2 className="text-3xl font-black mb-6">Technology Stack</h2>
 
           <div className="grid md:grid-cols-2 gap-5 text-lg">
-            <TechItem title="Frontend" text="React.js, Tailwind CSS, JavaScript, responsive UI design" />
-            <TechItem title="Backend" text="Python, Flask, REST APIs, backend business logic" />
-            <TechItem title="Database" text="PostgreSQL for users, meals, and progress data" />
-            <TechItem title="AI / Logic" text="Plan generation, meal filtering, scoring, and recommendation workflow" />
+            <TechItem
+              title="Frontend"
+              text="React.js, Tailwind CSS, JavaScript, responsive UI design"
+            />
+            <TechItem
+              title="Backend"
+              text="Python, Flask, REST APIs, backend business logic"
+            />
+            <TechItem
+              title="Database"
+              text="PostgreSQL for users, meals, and progress data"
+            />
+            <TechItem
+              title="AI / Logic"
+              text="Plan generation, meal filtering, scoring, and recommendation workflow"
+            />
           </div>
         </section>
 
-        <section className={`rounded-[2rem] border p-7 md:p-10 mb-36 ${cardClass}`}>
+        {/* Why FitAI Matters */}
+        <section
+          className={`mt-10 rounded-[2rem] border p-7 md:p-10 ${cardClass}`}
+        >
           <h2 className="text-3xl font-black mb-5">Why FitAI Matters</h2>
 
           <div className="space-y-5 text-lg leading-8">
@@ -208,41 +235,51 @@ export default function About({ isDark }) {
           </div>
         </section>
 
+        {/* Floating Developer Card */}
         {showDeveloperCard && (
           <div
-            className={`fixed bottom-6 right-6 z-40 w-[310px] rounded-[1.7rem] border p-5 shadow-2xl backdrop-blur-xl float-card ${
-            isDark
-              ? "bg-slate-950/80 border-white/10"
-              : "bg-white/85 border-emerald-100"
-          }`}
-        >
-          <button
-            onClick={() => setShowDeveloperCard(false)}
-            className="absolute top-3 right-3 p-2 rounded-full hover:bg-red-500/20 transition"
+            className={`fixed bottom-6 right-6 z-40 w-[360px] max-w-[calc(100vw-2rem)] rounded-[1.7rem] border p-5 shadow-2xl backdrop-blur-xl float-card ${
+              isDark
+                ? "bg-slate-950/90 border-white/10"
+                : "bg-white/90 border-emerald-100"
+            }`}
           >
-            <X size={18} />
-          </button>
-          <h3 className="text-xl font-black mb-3">About Developer</h3>
+            <button
+              type="button"
+              onClick={() => setShowDeveloperCard(false)}
+              className="absolute top-3 right-3 p-2 rounded-full hover:bg-red-500/20 transition"
+            >
+              <X size={18} />
+            </button>
 
-          <p className={`text-sm leading-6 mb-5 ${isDark ? "text-slate-300" : "text-slate-600"}`}>
-            Hi, I’m Abhinav Kumar, the developer behind FitAI. I enjoy building
-            practical software solutions and I’m currently focused on backend
-            development, APIs, databases, and full-stack project building.
-          </p>
+            <h3 className="text-xl font-black mb-3 pr-8">
+              About Developer
+            </h3>
 
-          <a
-            href={resumeLink}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 font-bold text-white hover:bg-emerald-600 transition"
-          >
-            View Resume
-            <ArrowUpRight size={18} />
-          </a>
-        </div>
+            <p
+              className={`text-sm leading-6 mb-5 ${
+                isDark ? "text-slate-300" : "text-slate-600"
+              }`}
+            >
+              Hi, I’m Abhinav Kumar, the developer behind FitAI. I enjoy
+              building practical software solutions and I’m currently focused
+              on backend development, APIs, databases, and full-stack project
+              building.
+            </p>
+
+            <a
+              href={resumeLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 font-bold text-white hover:bg-emerald-600 transition"
+            >
+              View Resume
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
         )}
       </div>
-    </main>
+    </section>
   );
 }
 
@@ -259,7 +296,11 @@ function FeatureCard({ isDark, icon, title, text }) {
         {React.cloneElement(icon, { size: 28 })}
       </div>
 
-      <h3 className={`text-xl font-black mb-3 ${isDark ? "text-white" : "text-slate-900"}`}>
+      <h3
+        className={`text-xl font-black mb-3 ${
+          isDark ? "text-white" : "text-slate-900"
+        }`}
+      >
         {title}
       </h3>
 
